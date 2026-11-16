@@ -36,4 +36,16 @@ public class Vehicle {
     String getModel() {
         return model;
     }
+
+    int getYear() {
+        return year;
+    }
+
+    String getColor() {
+        return color;
+    }
+
+    String getVehicleType() {
+        return vehicleType;
+    }
 }

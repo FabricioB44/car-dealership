@@ -35,4 +35,35 @@ public class Dealership {
         return filteredVehicles;
     }
 
+    public ArrayList<Vehicle> getVehiclesByYear(int year){
+        ArrayList<Vehicle> filteredVehicles = new ArrayList<>();
+        for (Vehicle vehicle : inventory){
+            if (vehicle.getYear() == year) {
+                filteredVehicles.add(vehicle);
+            }
+        }
+        return filteredVehicles;
+    }
+
+    public ArrayList<Vehicle> getVehiclesByColor(String color){
+        ArrayList<Vehicle> filteredVehicles = new ArrayList<>();
+        for (Vehicle vehicle : inventory){
+            if (vehicle.getColor().equalsIgnoreCase(color)) {
+                filteredVehicles.add(vehicle);
+            }
+        }
+        return filteredVehicles;
+    }
+
+    public ArrayList<Vehicle> getVehiclesByType(String vehicleType){
+        ArrayList<Vehicle> filteredVehicles = new ArrayList<>();
+        for (Vehicle vehicle : inventory){
+            if (vehicle.getVehicleType().equalsIgnoreCase(vehicleType)) {
+                filteredVehicles.add(vehicle);
+            }
+        }
+        return filteredVehicles;
+    }
+
+
 }
