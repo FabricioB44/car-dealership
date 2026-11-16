@@ -24,4 +24,8 @@ public class Vehicle {
         this.odometer = odometer;
         this.price = price;
     }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
 }
