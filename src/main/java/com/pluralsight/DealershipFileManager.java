@@ -1,14 +1,13 @@
 package com.pluralsight;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.*;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public class DealershipFileManager {
-    public static Dealership getDealership(String fileName, ArrayList<Vehicle> inventory) {
+    public static Dealership getDealership() {
         try {
-            FileReader fileReader = new FileReader(fileName);
+            FileReader fileReader = new FileReader("inventory.csv");
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
             String line;
@@ -31,6 +30,19 @@ public class DealershipFileManager {
             }
             return dealership;
         } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void saveDealership(Dealership dealership){
+        try {
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("inventory.csv"));
+            bufferedWriter.newLine();
+            bufferedWriter.write(dealership.toString());
+            for (Vehicle vehicle : dealership.getAllVehicles())
+            bufferedWriter.write(vehicle.toString());
+            bufferedWriter.close();
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
