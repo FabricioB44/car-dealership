@@ -5,10 +5,15 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UserInterface {
-    private Dealership dealership = DealershipFileManager.getDealership();
+    private Dealership dealership;
+    private void init() {
+        DealershipFileManager fileManager = new DealershipFileManager();
+        this.dealership = fileManager.getDealership();
+    }
     private Scanner scanner = new Scanner(System.in);
 
     public void display(){
+        init();
         while (true) {
             System.out.println("What would you like to do?");
             System.out.println("1) Find vehicles within a price range");
