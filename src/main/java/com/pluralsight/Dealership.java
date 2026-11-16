@@ -77,4 +77,13 @@ public class Dealership {
         inventory.remove(vehicle);
     }
 
+    public String toString() {
+        return String.format(
+                "%s|%s|%s",
+                name,
+                address,
+                phone
+        );
+    }
+
 }
