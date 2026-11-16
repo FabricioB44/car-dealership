@@ -65,5 +65,16 @@ public class Dealership {
         return filteredVehicles;
     }
 
+    public ArrayList<Vehicle> getAllVehicles(){
+        return inventory;
+    }
+
+    public void addVehicle(Vehicle vehicle){
+        inventory.add(vehicle);
+    }
+
+    public void removeVehicle(Vehicle vehicle){
+        inventory.remove(vehicle);
+    }
 
 }
