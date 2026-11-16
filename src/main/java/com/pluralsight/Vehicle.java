@@ -25,7 +25,15 @@ public class Vehicle {
         this.price = price;
     }
 
-    public BigDecimal getPrice() {
+    BigDecimal getPrice() {
         return price;
+    }
+
+    String getMake() {
+        return make;
+    }
+
+    String getModel() {
+        return model;
     }
 }

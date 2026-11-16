@@ -24,4 +24,15 @@ public class Dealership {
         }
         return filteredVehicles;
     }
+
+    public ArrayList<Vehicle> getVehiclesByMakeModel(String make, String model){
+        ArrayList<Vehicle> filteredVehicles = new ArrayList<>();
+        for (Vehicle vehicle : inventory){
+            if (vehicle.getMake().equalsIgnoreCase(make.trim()) && vehicle.getModel().equalsIgnoreCase(model.trim())) {
+                filteredVehicles.add(vehicle);
+            }
+        }
+        return filteredVehicles;
+    }
+
 }
