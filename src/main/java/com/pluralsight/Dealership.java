@@ -76,6 +76,7 @@ public class Dealership {
     }
 
     public ArrayList<Vehicle> getAllVehicles(){
+        System.out.println(inventory);
         return inventory;
     }
 

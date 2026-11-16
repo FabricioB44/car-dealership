@@ -25,6 +25,10 @@ public class Vehicle {
         this.price = price;
     }
 
+    int getVin() {
+        return vin;
+    }
+
     BigDecimal getPrice() {
         return price;
     }
