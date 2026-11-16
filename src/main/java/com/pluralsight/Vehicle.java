@@ -41,6 +41,10 @@ public class Vehicle {
         return year;
     }
 
+    int getOdometer() {
+        return odometer;
+    }
+
     String getColor() {
         return color;
     }
