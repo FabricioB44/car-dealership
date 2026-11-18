@@ -2,7 +2,6 @@ package com.pluralsight;
 
 import java.io.*;
 import java.math.BigDecimal;
-import java.util.ArrayList;
 
 public class DealershipFileManager {
     public static Dealership getDealership() {
@@ -37,9 +36,9 @@ public class DealershipFileManager {
     public static void saveDealership(Dealership dealership){
         try {
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("inventory.csv"));
-            bufferedWriter.newLine();
             bufferedWriter.write(dealership.toString());
             for (Vehicle vehicle : dealership.getAllVehicles()){
+                bufferedWriter.newLine();
                 bufferedWriter.write(vehicle.toString());
             }
             bufferedWriter.close();

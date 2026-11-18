@@ -41,12 +41,8 @@ public class UserInterface {
                 case "99" -> {
                     return;
                 }
-                default -> {
-                    System.out.println("\nInvalid option\n");
-                    continue;
-                }
+                default -> System.out.println("\nInvalid option\n");
             }
-            break;
         }
     }
 
