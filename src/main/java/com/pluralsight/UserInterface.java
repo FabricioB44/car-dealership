@@ -47,16 +47,28 @@ public class UserInterface {
     }
 
     private void processGetByPriceRequest() {
-        System.out.print("Minimum price: ");
-        BigDecimal min = new BigDecimal(scanner.nextLine());
+        try {
+            System.out.print("Minimum price: ");
+            BigDecimal min = new BigDecimal(scanner.nextLine());
 
-        System.out.print("Maximum price: ");
-        BigDecimal max = new BigDecimal(scanner.nextLine());
+            System.out.print("Maximum price: ");
+            BigDecimal max = new BigDecimal(scanner.nextLine());
 
-        ArrayList<Vehicle> vehicles =
-                dealership.getVehiclesByPrice(min, max);
+            ArrayList<Vehicle> vehicles =
+                    dealership.getVehiclesByPrice(min, max);
 
-        displayVehicles(vehicles);
+            if (vehicles.isEmpty()) {
+                System.out.println("No matching vehicles found.");
+                return;
+            }
+
+            for (Vehicle vehicle : vehicles) {
+                System.out.println(vehicle);
+            }
+
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid input.");
+        }
     }
 
     private void processGetByMakeModelRequest() {
@@ -73,14 +85,21 @@ public class UserInterface {
     }
 
     private void processGetByYearRequest() {
-        System.out.print("Year: ");
-        int year = Integer.parseInt(scanner.nextLine());
+        try {
+            System.out.print("Minimum year: ");
+            int minYear = Integer.parseInt(scanner.nextLine());
 
+            System.out.print("Maximum year: ");
+            int maxYear = Integer.parseInt(scanner.nextLine());
 
-        ArrayList<Vehicle> vehicles =
-                dealership.getVehiclesByYear(year);
+            ArrayList<Vehicle> vehicles =
+                    dealership.getVehiclesByYear(minYear, maxYear);
 
-        displayVehicles(vehicles);
+            displayVehicles(vehicles);
+
+        } catch (NumberFormatException e) {
+            System.out.println("Please enter a valid year.");
+        }
     }
 
     private void processGetByColorRequest() {
@@ -94,16 +113,21 @@ public class UserInterface {
     }
 
     private void processGetByMileageRequest() {
-        System.out.print("Minimum mileage: ");
-        int min = Integer.parseInt(scanner.nextLine());
+        try {
+            System.out.print("Minimum mileage: ");
+            int min = Integer.parseInt(scanner.nextLine());
 
-        System.out.print("Maximum mileage: ");
-        int max = Integer.parseInt(scanner.nextLine());
+            System.out.print("Maximum mileage: ");
+            int max = Integer.parseInt(scanner.nextLine());
 
-        ArrayList<Vehicle> vehicles =
-                dealership.getVehiclesByMileRange(min, max);
+            ArrayList<Vehicle> vehicles =
+                    dealership.getVehiclesByMileRange(min, max);
 
-        displayVehicles(vehicles);
+            displayVehicles(vehicles);
+
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid input.");
+        }
     }
 
     private void processGetByVehicleTypeRequest() {
@@ -117,7 +141,14 @@ public class UserInterface {
     }
 
     private void processGetAllVehiclesRequest() {
-        for (Vehicle vehicle : dealership.getAllVehicles()) {
+        ArrayList<Vehicle> vehicles = dealership.getAllVehicles();
+
+        if (vehicles.isEmpty()) {
+            System.out.println("There are currently no vehicles in inventory.");
+            return;
+        }
+
+        for (Vehicle vehicle : vehicles) {
             System.out.println(vehicle);
         }
     }
