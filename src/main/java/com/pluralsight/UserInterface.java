@@ -56,9 +56,7 @@ public class UserInterface {
         ArrayList<Vehicle> vehicles =
                 dealership.getVehiclesByPrice(min, max);
 
-        for (Vehicle vehicle : vehicles) {
-            System.out.println(vehicle);
-        }
+        displayVehicles(vehicles);
     }
 
     private void processGetByMakeModelRequest() {
@@ -71,9 +69,7 @@ public class UserInterface {
         ArrayList<Vehicle> vehicles =
                 dealership.getVehiclesByMakeModel(make, model);
 
-        for (Vehicle vehicle : vehicles) {
-            System.out.println(vehicle);
-        }
+        displayVehicles(vehicles);
     }
 
     private void processGetByYearRequest() {
@@ -84,9 +80,7 @@ public class UserInterface {
         ArrayList<Vehicle> vehicles =
                 dealership.getVehiclesByYear(year);
 
-        for (Vehicle vehicle : vehicles) {
-            System.out.println(vehicle);
-        }
+        displayVehicles(vehicles);
     }
 
     private void processGetByColorRequest() {
@@ -96,9 +90,7 @@ public class UserInterface {
         ArrayList<Vehicle> vehicles =
                 dealership.getVehiclesByColor(color);
 
-        for (Vehicle vehicle : vehicles) {
-            System.out.println(vehicle);
-        }
+        displayVehicles(vehicles);
     }
 
     private void processGetByMileageRequest() {
@@ -111,9 +103,7 @@ public class UserInterface {
         ArrayList<Vehicle> vehicles =
                 dealership.getVehiclesByMileRange(min, max);
 
-        for (Vehicle vehicle : vehicles) {
-            System.out.println(vehicle);
-        }
+        displayVehicles(vehicles);
     }
 
     private void processGetByVehicleTypeRequest() {
@@ -123,9 +113,7 @@ public class UserInterface {
         ArrayList<Vehicle> vehicles =
                 dealership.getVehiclesByType(type);
 
-        for (Vehicle vehicle : vehicles) {
-            System.out.println(vehicle);
-        }
+        displayVehicles(vehicles);
     }
 
     private void processGetAllVehiclesRequest() {
@@ -200,6 +188,17 @@ public class UserInterface {
         DealershipFileManager.saveDealership(dealership);
 
         System.out.println("Vehicle removed successfully.");
+    }
+
+    private void displayVehicles(ArrayList<Vehicle> vehicles) {
+        if (vehicles.isEmpty()) {
+            System.out.println("No matching vehicles found.");
+            return;
+        }
+
+        for (Vehicle vehicle : vehicles) {
+            System.out.println(vehicle);
+        }
     }
 }
 
