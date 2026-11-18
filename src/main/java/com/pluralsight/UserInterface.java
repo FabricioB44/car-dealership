@@ -98,7 +98,6 @@ public class UserInterface {
 
         for (Vehicle vehicle : vehicles) {
             System.out.println(vehicle);
-            System.out.println("test");
         }
     }
 
