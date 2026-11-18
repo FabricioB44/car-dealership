@@ -33,7 +33,7 @@ This is a simple inventory app to keep track of different types of vehicles by r
 
 ### Data and configuration
 
-- `inventory.csv` sits at the project root, next to `pom.xml`. Contains prewritten transaction data. The program reads it at start.
+- `inventory.csv` sits at the project root, next to `pom.xml`. Contains prewritten vehicle data. The program reads it at start.
 
 ## Technologies Used
 
